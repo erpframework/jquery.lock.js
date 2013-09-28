@@ -1,0 +1,24 @@
+{
+  "name": "jquery.lock.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kakusuke/jquery.lock.js",
+  "authors": [
+    "kakusuke <bananafishmonger+github@gmail.com>"
+  ],
+  "description": "jQuery plugin for adding the function of killing dispatcher.",
+  "main": "jquery.lock.js",
+  "keywords": [
+    "jQuery",
+    "event",
+    "lock",
+    "kill"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
