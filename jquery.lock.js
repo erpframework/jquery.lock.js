@@ -3,22 +3,31 @@
 
 	$.extend($.fn, {
 		lock: function() {
-			this.locked = true;
+			return this.each(function() {
+				this.setAttribute('locked', true);
+			});
 		},
 		unlock: function() {
-			this.locked = false;
+			return this.each(function() {
+				this.removeAttribute('locked');
+			});
 		}
 	});
 
 	var origDispatch = $.event.dispatch;
 
 	$.event.dispatch = function(event) {
-		if (this.locked) {
+		event = $.event.fix(event || window.event);
+		var args = [].slice.call(arguments, 1);
+
+		if (event.currentTarget && event.currentTarget.getAttribute &&
+				event.currentTarget.getAttribute('locked')) {
 			event.preventDefault();
 			event.stopImmediatePropagation();
 			return;
 		}
 
-		return origDispatch.apply(this, arguments);
+		args.unshift(event);
+		return origDispatch.apply(this, args);
 	};
 }());

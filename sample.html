@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sample</title>
+
+	<style type="text/css">
+	[locked] { opacity: 0.8; background-color: #ffcccc; }
+	</style>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script src="jquery.lock.js"></script>
+</head>
+<body>
+	<textarea id="text"></textarea>
+	<br />
+	<div id="view"></div>
+	<br />
+
+	<button id="lock">lock</button>
+	<button id="unlock">unlock</button>
+
+	<script type="text/javascript">
+
+	$('#lock').on('click', function() { $('#text').lock() });
+	$('#unlock').on('click', function() { $('#text').unlock() });
+
+	$('#text').on('keyup change', function() { $('#view').text($(this).val()) });
+	</script>
+</body>
+</html>
